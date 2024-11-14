@@ -167,3 +167,9 @@ bit_t os_queryTimeCriticalJobs(ostime_t time) {
     else
         return 0;
 }
+
+// return true if there are any jobs pending
+// see https://github.com/mcci-catena/arduino-lmic/issues/296
+bit_t os_queryJobsPending() {
+    return OS.runnablejobs || OS.scheduledjobs;
+}
